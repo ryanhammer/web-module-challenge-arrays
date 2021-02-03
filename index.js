@@ -219,8 +219,19 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
+function getRandomFlavors(flavorsOne, flavorsTwo, flavorsThree, flavorsFour) {
+    const flavorOptions = flavorsOne.concat(flavorsTwo, flavorsThree, flavorsFour);
+    let options = flavorOptions.length;
+    const randomFlavors = [];
+    let randomChoice = 0;
+    for (let i = 0; i < 31; i++) {
+        randomChoice = Math.floor(options * Math.random());
+        randomFlavors.push(flavorOptions[randomChoice]);
+        flavorOptions.splice(randomChoice, 1);
+        options --;
+    }
+
+    return randomFlavors;
 }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
